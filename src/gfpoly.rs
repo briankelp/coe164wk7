@@ -1,3 +1,7 @@
+/* 
+    brian fallaria
+    Date: April 19 2025
+*/
 use std::fmt;
 
 pub struct GFPoly {

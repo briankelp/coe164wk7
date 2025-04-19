@@ -1,3 +1,7 @@
+/* 
+    brian fallaria
+    Date: April 19 2025
+*/
 mod gfpoly;
 
 use std::io;
@@ -9,6 +13,7 @@ where
     W: io::Write {
 
     let mut str_in = String::new();
+    let mut output_lines = Vec::new();
 
     str_in.clear();
     reader.read_line(&mut str_in)
@@ -36,7 +41,11 @@ where
         
         let poly = GFPoly::with_coefs(coefficients, modulo);
         
-        writeln!(writer, "Message #{}: {}", t, poly)?;
+        output_lines.push(format!("Message #{}: {}", t, poly));
+    }
+
+    for line in output_lines {
+        writeln!(writer, "{}", line)?;
     }
 
     Ok(())
